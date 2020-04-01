@@ -163,7 +163,7 @@ public class MainScript : MonoBehaviour
 
             //new Thread(StartVoiceRequest).Start(samples);
             StartCoroutine(StartVoiceRequest("https://dialogflow.googleapis.com/v2/projects/coffee-wnsicn/agent/sessions/1234:detectIntent",
-                "ya29.c.Ko8BxAenCM3P_FAxsbS_T_S9lxegNej8mzs_43ZXbnXNemWOWSEQWyv4OpZ9TH5CE5BaktnXb34qq4t6ERQG86k4DeY65paupkjjQyzo53zTdVPm7T-20jWS5TgqWNK8gJYWbgG6mrSUY7MGBRxsbolbPjt30cdUfuuTRyNeBxteaGsAGFnaqEd2HsSBMMBp5Sg",
+                "",
                 bytes));
         }
     }
