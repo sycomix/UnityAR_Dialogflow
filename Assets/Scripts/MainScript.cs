@@ -144,7 +144,6 @@ namespace Syrus.Plugins.DFV2Client
 
                 //new Thread(StartVoiceRequest).Start(samples);
                 StartCoroutine(StartVoiceRequest("https://dialogflow.googleapis.com/v2/projects/coffee-wnsicn/agent/sessions/0123:detectIntent",
-                    "ya29.c.Ko8BxQdrOBhvpVg9SjQwxj35HIOkN90SRHu_Pw5MnY8wWp6XmyGf8IkWPLtpDnyvzpSt6yOdwiFlv6pqfHf-VD8MYpc2BUjI5PJZbU406E-80wNYE-9YfbWoaHVuf-P1Ryr1bp6kOOktIG-WV5AS-mOO6-4ztEukxPvxaxyBwLELs4hQm-MYkOVCPU2kBrP4vYo",
                     bytes));
             }
         }
@@ -155,10 +154,8 @@ namespace Syrus.Plugins.DFV2Client
             recordingActive = false;
         }
 
-        IEnumerator StartVoiceRequest(string url, string AccessToken, object parameter)
+        IEnumerator StartVoiceRequest(string url, object parameter)
         {
-            Debug.Log(Application.persistentDataPath);
-            Debug.Log("1");
             string accessToken = string.Empty;
             while (!JwtCache.TryGetToken(
                 "dialogflow-client@coffee-wnsicn.iam.gserviceaccount.com", out accessToken))
