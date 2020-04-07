@@ -13,7 +13,11 @@ namespace Syrus.Plugins.DFV2Client
     [RequireComponent(typeof(AudioSource))]
     public class MainScript : MonoBehaviour
     {
-        
+        //Dialogflow url
+        private string dialogflowUrl = "https://dialogflow.googleapis.com/v2/projects/coffee-wnsicn/agent/sessions/";
+        //Dialogflow method
+        private string dialogflowMethod = "detectIntent";
+
         //A boolean that flags whether there's a connected microphone
         private bool micConnected = false;
 
@@ -142,9 +146,14 @@ namespace Syrus.Plugins.DFV2Client
                     }
                 }
 
+                // UUID generation
+                var uuid = System.Guid.NewGuid();
+                Debug.Log(uuid);
+                var requestUrl = dialogflowUrl + uuid + ":" + dialogflowMethod;
+                Debug.Log(requestUrl);
+
                 //new Thread(StartVoiceRequest).Start(samples);
-                StartCoroutine(StartVoiceRequest("https://dialogflow.googleapis.com/v2/projects/coffee-wnsicn/agent/sessions/0123:detectIntent",
-                    bytes));
+                StartCoroutine(StartVoiceRequest(requestUrl, bytes));
             }
         }
 
